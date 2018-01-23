@@ -11,11 +11,11 @@ public class App {
             String date1 = args[0];
             String date2 = args[1];
             Either<String, Pair<String, Integer>> result =
-                    new ElaspsedDaysCalculator()
-                    .withDate1(date1)
-                    .withDate2(date2)
-                    .calculate();
-            if(result.isLeft()) {
+                    new ElapsedDaysCalculator()
+                            .withDate1(date1)
+                            .withDate2(date2)
+                            .calculate();
+            if (result.isLeft()) {
                 System.out.println(result.left().get());
             } else {
                 System.out.println(result.getOrNull().left());
@@ -25,11 +25,11 @@ public class App {
         System.exit(0);
     }
 
-    public static void printInvalidInputMessage() {
+    private static void printInvalidInputMessage() {
         System.out.println("Invalid Input");
     }
 
-    public static void printHelp() {
+    private static void printHelp() {
         System.out.println("Usage: [command] date1 date2");
     }
 

@@ -7,11 +7,11 @@ import java.util.Objects;
  */
 public class DateUtils {
 
-    public static final String VALID_DATE_PATTERN =
+    private static final String VALID_DATE_PATTERN =
             "^\\d{1,4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$";
-    public static final Short[] nonLeapYearMonthLength =
+    private static final Short[] nonLeapYearMonthLength =
             new Short[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    public static final Short[] leapYearMonthLength =
+    private static final Short[] leapYearMonthLength =
             new Short[]{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public static boolean isLeapYear(int year) {
@@ -35,7 +35,7 @@ public class DateUtils {
     public static Integer getDays(QDate date) {
         int days = date.getDay();
         for (int m = 1; m <= date.getMonth() - 1; m++) {
-            days += DateUtils.isLeapYear(date.getYear()) ? leapYearMonthLength[m-1] : nonLeapYearMonthLength[m-1];
+            days += DateUtils.isLeapYear(date.getYear()) ? leapYearMonthLength[m - 1] : nonLeapYearMonthLength[m - 1];
         }
         for (int y = 1; y <= date.getYear() - 1; y++) {
             days += DateUtils.isLeapYear(y) ? 366 : 365;
@@ -45,6 +45,7 @@ public class DateUtils {
 
     /**
      * Parse date in form, supports only "YYYY-MM-DD" format.
+     *
      * @param dateString date in string form
      * @return Optional<QDate>
      */

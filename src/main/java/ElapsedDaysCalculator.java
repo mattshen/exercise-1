@@ -8,21 +8,21 @@ import java.text.MessageFormat;
 /**
  * Simply a builder.
  */
-public class ElaspsedDaysCalculator {
+public class ElapsedDaysCalculator {
 
     private String date1;
 
     private String date2;
 
-    public ElaspsedDaysCalculator() {
+    public ElapsedDaysCalculator() {
     }
 
-    public ElaspsedDaysCalculator withDate1(String date1) {
+    public ElapsedDaysCalculator withDate1(String date1) {
         this.date1 = date1;
         return this;
     }
 
-    public ElaspsedDaysCalculator withDate2(String date2) {
+    public ElapsedDaysCalculator withDate2(String date2) {
         this.date2 = date2;
         return this;
     }
@@ -47,14 +47,15 @@ public class ElaspsedDaysCalculator {
 
     /**
      * Look after the outcome
+     *
      * @param diff
      * @return
      */
     private Pair<String, Integer> elapsedDays(Integer diff) {
-         if (diff == 0) {
+        if (diff == 0) {
             return Pair.pair(formatResult(date1, date2, 0), 0);
         } else {
-            return Pair.pair(formatResult(date1, date2, Math.abs(diff) -1), diff);
+            return Pair.pair(formatResult(date1, date2, Math.abs(diff) - 1), diff);
         }
     }
 
