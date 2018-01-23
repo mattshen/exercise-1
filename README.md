@@ -20,6 +20,7 @@ YYYY-MM-DD
 
 ```
 $git clone https://github.com/mattshen/exercise-1
+$cd exercise-1
 $./gradlew build test
 ```
 
