@@ -13,6 +13,13 @@ apply plugin: 'idea'
 // Apply the application plugin to add support for building an application
 apply plugin: 'application'
 
+run {
+    standardInput = System.in
+    if (System.getProperty("exec.args") != null) {
+        args System.getProperty("exec.args").split()
+    }
+}
+
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use jcenter for resolving your dependencies.
@@ -22,7 +29,7 @@ repositories {
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:22.0'
+    compile 'io.atlassian.fugue:fugue:4.5.1'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'

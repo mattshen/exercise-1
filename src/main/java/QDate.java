@@ -1,3 +1,6 @@
+/**
+ * Simple model to represent a date with only year, month and day.
+ */
 public class QDate {
 
     private final int year;
